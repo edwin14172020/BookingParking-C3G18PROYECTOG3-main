@@ -132,7 +132,7 @@
               >
                 <div class="col m6">
                   <v-text-field
-                      v-model="code"
+                      v-model="placa"
                       :error-messages="errors"
                       label="Placa del Vehiculo"
                       required
@@ -247,7 +247,7 @@ export default {
     ],
     marca: '',
     color: '',
-    code: '',
+    placa: '',
     fecha: '',
     hora: '',
     snackbar: false,
@@ -266,7 +266,7 @@ export default {
     GuardarReserva(){
           console.log("Guardar Reserva")
           const reservas = {
-          code: this.code,
+          placa: this.placa,
           name: this.name,
           phoneNumber: this.phoneNumber,
           email: this.email,
@@ -295,7 +295,7 @@ export default {
       this.email = ''
       this.marca = ''
       this.color = ''
-      this.code = ''
+      this.placa = ''
       this.menu = ''
       this.fecha = ''
       this.hora = ''

@@ -2,7 +2,7 @@
   <v-card>
 
     <v-card-title>{{ item.name }}</v-card-title> 
-    <v-card-subtitle><b>placa:</b> {{item.code}}</v-card-subtitle>
+    <v-card-subtitle><b>placa:</b> {{item.placa}}</v-card-subtitle>
     <v-card-subtitle><b>phoneNumber:</b> {{ item.phoneNumber }}</v-card-subtitle>
     <v-card-subtitle><b>email:</b> {{ item.email }}</v-card-subtitle>
     <v-card-subtitle><b>Tipo de Reserva:</b> {{ item.select }}</v-card-subtitle>
@@ -19,7 +19,7 @@
     </div>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="success" @click="'/bookings/' + item.code"> Editar </v-btn>
+      <v-btn color="success" @click="editar()"> Editar </v-btn>
       <v-btn color="error" @click="eliminar()"> Eliminar </v-btn>
     </v-card-actions>
   </v-card>
@@ -34,10 +34,14 @@ export default {
   props: ["item"],
   methods: {
     editar(){
-     this.$router.push(`/bookings/${this.item.code}`);
+      bookings.editBooking(this.item.id)
+      .then(() => {
+        window.location.reload();
+      })
+      .catch((err) => console.error(err.reponse.data.message));
     },
     eliminar(){
-      bookings.deleteBooking(this.item.code)
+      bookings.deleteBooking(this.item.id)
       .then(() => {
         window.location.reload();
       })
