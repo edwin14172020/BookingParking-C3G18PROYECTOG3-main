@@ -5,15 +5,12 @@
         <div class="col m12 card-panel">
           <validation-observer
               ref="observer"
-              v-slot="{ invalid }"
-          >
+              v-slot="{ invalid }">
             <form @submit.prevent="submit">
               <validation-provider
                   v-slot="{ errors }"
                   name="Nombre y Apellido"
-                  rules="required|max:30"
-
-              >
+                  rules="required|max:30">
                 <div class="col m6">
                   <v-text-field
                       v-model="name"
@@ -23,7 +20,6 @@
                   ></v-text-field>
                 </div>
               </validation-provider>
-
               <validation-provider
                   v-slot="{ errors }"
                   name="Numero de Celular"
@@ -31,8 +27,7 @@
                     required: true,
                     digits: 10,
                    regex: ''
-                    }"
-              >
+                    }">
                 <div class="col m4">
                   <v-text-field
                       v-model="phoneNumber"
@@ -42,12 +37,10 @@
                   ></v-text-field>
                 </div>
               </validation-provider>
-
               <validation-provider
                   v-slot="{ errors }"
                   name="email"
-                  rules="required|email"
-              >
+                  rules="required|email">
                 <div class="col m6">
                   <v-text-field
                       v-model="email"
@@ -57,12 +50,10 @@
                   ></v-text-field>
                 </div>
               </validation-provider>
-
               <validation-provider
                   v-slot="{ errors }"
                   name="Tipo de Reserva"
-                  rules="required"
-              >
+                  rules="required">
                 <div class="col m6">
                   <v-select
                       v-model="select"
@@ -74,7 +65,6 @@
                   ></v-select>
                 </div>
               </validation-provider>
-
               <validation-provider
                   v-slot="{ errors }"
                   name="Tipo de Vehiculo"
@@ -132,7 +122,7 @@
               >
                 <div class="col m6">
                   <v-text-field
-                      v-model="placa"
+                      v-model="code"
                       :error-messages="errors"
                       label="Placa del Vehiculo"
                       required
@@ -175,9 +165,9 @@
 
 
               <div class="col m6">
-                <v-btn @click="GuardarReserva()" color="gris claro -5" :disabled="invalid">Enviar</v-btn>
+                <v-btn @click="GuardarReserva()" color="success" :disabled="invalid">Enviar</v-btn>
 
-                <v-btn @click="clear()" color="gris claro -3">Borrar </v-btn>
+                <v-btn @click="clear()" color="error">Borrar </v-btn>
               </div>
               <v-snackbar v-model="snackbar">
               {{ snackbarText }}
@@ -247,7 +237,7 @@ export default {
     ],
     marca: '',
     color: '',
-    placa: '',
+    code: '',
     fecha: '',
     hora: '',
     snackbar: false,
@@ -266,7 +256,7 @@ export default {
     GuardarReserva(){
           console.log("Guardar Reserva")
           const reservas = {
-          placa: this.placa,
+          code: this.code,
           name: this.name,
           phoneNumber: this.phoneNumber,
           email: this.email,
@@ -295,7 +285,7 @@ export default {
       this.email = ''
       this.marca = ''
       this.color = ''
-      this.placa = ''
+      this.code = ''
       this.menu = ''
       this.fecha = ''
       this.hora = ''

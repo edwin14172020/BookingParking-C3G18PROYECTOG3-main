@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/',
+        path: '/dashboard',
         name: 'dashboard',
         component: Dashboard
     },
@@ -31,8 +31,8 @@ const routes = [
         component: Reservas
     },
     {
-        path: '/bookings/:code',
-        name: 'Edit Product',
+        path: '/reservas/:id',
+        name: 'Editar Reserva',
         component: Reservas
       },
     {

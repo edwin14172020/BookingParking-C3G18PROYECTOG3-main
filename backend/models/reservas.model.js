@@ -8,7 +8,7 @@ const reservasSchema = mongoose.Schema({
     select1: String,
     marca: String,
     color: String,
-    placa: String,
+    code: String,
     fecha: String,
     hora: String,
 })

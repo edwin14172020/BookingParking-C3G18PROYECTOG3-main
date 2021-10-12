@@ -34,9 +34,9 @@ module.exports = class ReservasApi {
 
     static async update(req, res) {
         try {
-            let code = req.params.code
+            let id = req.params.id
             const toUpdate = req.body
-            await reservasModel.updateOne({code: code}, toUpdate)
+            await reservasModel.updateOne({id: id}, toUpdate)
             res.status(200).json()
         } catch (e) {
             res.status(400).json({message: e.message})
@@ -45,8 +45,8 @@ module.exports = class ReservasApi {
 
     static async delete(req, res) {
         try {
-            let code = req.params.code
-            await reservasModel.deleteOne({code: code})
+            let id = req.params.id
+            await reservasModel.deleteOne({id: id})
             res.status(200).json()
         } catch (e) {
             res.status(400).json({message: e.message})

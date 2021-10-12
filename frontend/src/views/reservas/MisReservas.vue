@@ -40,14 +40,6 @@ export default {
           this.bookings = response.data;
         })
         .catch((err) => console.error(err));
-  },   
-  methods: {
-    editar(){
-      console.log(`Editar ${this.item.code}`);
-    },
-    eliminar(){
-      console.log(`Eliminar ${this.item.code}`);
-    }
   }
 }
 
